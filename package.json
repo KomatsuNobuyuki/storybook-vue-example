@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/KomatsuNobuyuki/storybook-vue-example/issues"
   },
-  "homepage": "https://github.com/KomatsuNobuyuki/storybook-vue-example#readme"
+  "homepage": "https://github.com/KomatsuNobuyuki/storybook-vue-example#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/register": "^7.12.13"
+  }
 }
