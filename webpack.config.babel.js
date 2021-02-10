@@ -1,4 +1,6 @@
 import path from 'path';
+import { VueLoaderPlugin } from 'vue-loader';
+
 
 const config = {
   mode: "development",
@@ -7,6 +9,21 @@ const config = {
     path: path.resolve(__dirname, './_public'),
     filename: 'js/[name].js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.vue$/,
+        exclude: /node_modules/,
+        loader: 'vue-loader',
+      },
+    ]
+  },
+  plugins: [new VueLoaderPlugin()],
   devServer: {
     contentBase: path.resolve(__dirname, './_public'),
     port: 8080,
