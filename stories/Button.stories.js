@@ -21,8 +21,6 @@ export default {
 }
 
 const Template = (args, { argTypes }) => {
-  console.log(args);
-  console.log(argTypes);
   return ({
     props: Object.keys(argTypes),
     components: { MyButton },
