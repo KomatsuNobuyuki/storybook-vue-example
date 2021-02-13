@@ -7,14 +7,28 @@ import MyButton from '../_src/js/components/Button.vue';
 export default {
   title: 'Components/Button',
   component: MyButton,
-  argTypes: {},
+  argTypes: {
+    link: {
+      defaultValue: 'https://google.com',
+    },
+    default: { // default slot
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'Default Label',
+    },
+  },
 }
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  component: { MyButton },
-  template: '<my-button :href="link" :target="target" class="button">テキスト</my-button>',
-});
+const Template = (args, { argTypes }) => {
+  console.log(args);
+  console.log(argTypes);
+  return ({
+    props: Object.keys(argTypes),
+    components: { MyButton },
+    template: '<my-button v-bind="$props">{{$props.default}}</my-button>',
+  });
+}
 
 export const Primary = Template.bind({});
 Primary.args = {
