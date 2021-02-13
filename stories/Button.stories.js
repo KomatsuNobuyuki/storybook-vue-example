@@ -1,39 +1,22 @@
-import MyButton from './Button.vue';
+// ストーリーブックでは、UIコンポーネントをキャプチャしているページを「ストーリー」と呼ぶ
+import MyButton from '../_src/js/components/Button.vue';
 
+/**
+ * default exportするオブジェクトには、ストーリーに対するメタ情報を定義していく
+ */
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: MyButton,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-  },
-};
+  argTypes: {},
+}
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { MyButton },
-  template: '<my-button @onClick="onClick" v-bind="$props" />',
+  component: { MyButton },
+  template: '<my-button :href="link" :target="target" class="button">テキスト</my-button>',
 });
 
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
 };
